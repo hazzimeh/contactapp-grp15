@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Contacts</title>
+</head>
+<body>
+    <h1>All Contacts</h1>
+    <ul>
+        {% for index, contact in enumerate(contacts) %}
+            <li>
+                Name: {{ contact['name'] }} | Address: {{ contact['address'] }} | Profession: {{ contact['profession'] }} |
+                Phone: {{ contact['tel_number'] }} | Email: {{ contact['email'] }} |
+                <a href="/update_contact/{{ index }}">Update</a> |
+                <form action="/delete_contact/{{ index }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go back to create contact</a>
+</body>
+</html>
